@@ -9,11 +9,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Newtonsoft.Json.Serialization;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using FluentValidation.AspNetCore;
+using AutoMapper;
+using System;
 
 namespace BelajarCoreThree
 {
@@ -31,6 +29,7 @@ namespace BelajarCoreThree
         {
             services.AddControllers();
             services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
             services.AddScoped<IUrlHelper>(x =>
             {
                 var actionContext = x.GetRequiredService<IActionContextAccessor>().ActionContext;

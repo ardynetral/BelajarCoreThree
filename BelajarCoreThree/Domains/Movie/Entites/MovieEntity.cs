@@ -1,4 +1,6 @@
 ﻿using BelajarCoreThree.Infrastructures.DataAccess;
+using System;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BelajarCoreThree.Domains.Movie.Entites
@@ -7,6 +9,8 @@ namespace BelajarCoreThree.Domains.Movie.Entites
     public class MovieEntity
     {
         [Column("id")]
+        [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
         [Column("title")]
